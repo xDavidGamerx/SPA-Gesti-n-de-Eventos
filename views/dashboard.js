@@ -7,27 +7,22 @@ export const dashboardView = async () => {
         const response = await fetch(`${API_URL}/events`);
         const events = await response.json();
 
-        let eventsTable = `
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Fecha</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-        `;
+        let eventsGrid = '';
         events.forEach(event => {
-            eventsTable += `
-                <tr>
-                    <td>${event.name}</td>
-                    <td>${event.date}</td>
-                    <td>
+            eventsGrid += `
+                <div class="event-card">
+                    <div class="event-info">
+                        <h3>${event.name}</h3>
+                        <p>Date: ${event.date}</p>
+                        <p>Location: ${event.location}</p>
+                        <p>Capacity: ${event.capacity}</p>
+                        <p>Attendees: ${event.attendees}</p>
+                    </div>
+                    <div class="event-actions">
                         <a href="/dashboard/events/edit?id=${event.id}" data-link>Editar</a>
                         <button class="delete-event" data-id="${event.id}">Eliminar</button>
-                    </td>
-                </tr>
+                    </div>
+                </div>
             `;
         });
         eventsTable += '</tbody></table>';

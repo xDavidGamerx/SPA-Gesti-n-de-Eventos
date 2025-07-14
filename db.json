@@ -1,11 +1,18 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Admin",
       "email": "admin@example.com",
       "password": "admin",
       "role": "administrador"
+    },
+    {
+      "id": "7388",
+      "name": "David Restrepo",
+      "email": "davidrestrepo0812@gmail.com",
+      "password": "nacional",
+      "role": "visitante"
     }
   ],
   "events": []
