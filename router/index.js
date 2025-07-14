@@ -16,8 +16,6 @@ const routes = {
 };
 
 import { handleLogin, handleRegister } from '../auth/index.js';
-
-import { handleLogin, handleRegister } from '../auth/index.js';
 import { handleCreateEvent, handleEditEvent, handleDeleteEvent } from '../events/index.js';
 
 const router = async () => {
@@ -58,6 +56,8 @@ const router = async () => {
 window.addEventListener('popstate', router);
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize router on page load
+    router();
     document.body.addEventListener('click', e => {
         if (e.target.matches('[data-link]')) {
             e.preventDefault();
